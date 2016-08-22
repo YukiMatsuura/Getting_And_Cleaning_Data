@@ -66,13 +66,13 @@ tBodyGyroMean
 tBodyGyroJerkMean
 
 + 'features.txt': List of all features.
-+ 'activity_labels.txt': Links the class labels with their activity name.
-1 WALKING
-2 WALKING_UPSTAIRS
-3 WALKING_DOWNSTAIRS
-4 SITTING
-5 STANDING
-6 LAYING
++ 'activity_labels.txt': Links the "Activity Code" with their "Activity" description.
+- 1 WALKING
+- 2 WALKING_UPSTAIRS
+- 3 WALKING_DOWNSTAIRS
+- 4 SITTING
+- 5 STANDING
+- 6 LAYING
 
 + 'train/X_train.txt': Training set.
 + 'train/y_train.txt': Training labels.
@@ -80,13 +80,13 @@ tBodyGyroJerkMean
 + 'test/y_test.txt': Test labels.
 
 + The following files are available for the train and test data. Their descriptions are equivalent. 
-- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
+- 'train/subject_train.txt': Each row identifies the subject (or "Volunteer") who performed the activity for each window sample. Its range is from 1 to 30 ("Volunteer ID").
 + Transformations or work that you performed to clean up the data. 
 1) Labeled the downloaded data with descriptive variable names obtained from features file
 2) Merged the training and the test sets to create one data set called merged_data
 3) Extracted only the measurements on the mean and standard deviation for each measurement into subset_data
 4) Merged the subset_data with the activity label into complete_data
-5) Creates a second, independent tidy data set called tidy_data with the average of each variable for each activity and each subject.
+5) Created a second, independent tidy data set called tidy_data with the average of each variable for each activity and each subject.
 
 Notes: 
 - Features are normalized and bounded within [-1,1].
