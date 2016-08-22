@@ -36,12 +36,13 @@ merged_train <- cbind(y_train, subject_train, x_train)
 merged_test <- cbind(y_test, subject_test, x_test)
 merged_data <- rbind(merged_train, merged_test)
 # Extract only the measurements on the mean and standard deviation for each measurement
-subset_vector <- grep(paste(subset_vector, collapse='|'), colnames(merged_data), ignore.case=TRUE)
+my_columns <- c("ActivityCode","VolunteerID","mean..","std..")
+subset_vector <- grep(paste(my_columns, collapse='|'), colnames(merged_data), ignore.case=TRUE)
 subset_data <- merged_data[, subset_vector]
 # Merge the extracted data with the activity label table to use descriptive activity names
-complete_data <- merge(subset_data, activity_label, by="ActivityCode", all.x = TRUE)
+complete_data <- merge(subset_data, activity_label,by.x="ActivityCode",by.y="ActivityCode",all.x=TRUE)
 # Creates a second, independent tidy data set with the average of each variable for each activity and each subject
 melted_data <- melt(complete_data, id=c("ActivityCode","Activity","VolunteerID"))
 tidy_data <- dcast(melted_data, ActivityCode + Activity + VolunteerID ~variable, mean)
 # Create a text file with the tidy data
-write.table(tidy_data,"./data/tidy_data", row.name=FALSE)
+write.table(tidy_data,"./data/tidy_data.txt", row.name=FALSE)
