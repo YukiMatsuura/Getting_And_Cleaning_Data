@@ -44,4 +44,4 @@ complete_data <- merge(subset_data, activity_label, by="ActivityCode", all.x = T
 melted_data <- melt(complete_data, id=c("ActivityCode","Activity","VolunteerID"))
 tidy_data <- dcast(melted_data, ActivityCode + Activity + VolunteerID ~variable, mean)
 # Create a text file with the tidy data
-write.table(tidy_data,"/data/tidy_data", row.name=FALSE)
+write.table(tidy_data,"./data/tidy_data", row.name=FALSE)
